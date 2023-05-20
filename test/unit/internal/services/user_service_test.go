@@ -3,9 +3,9 @@ package services_test
 import (
 	"testing"
 
-	mock_repositories "crud_dynamodb/internal/mocks"
 	"crud_dynamodb/internal/models"
 	services "crud_dynamodb/internal/services"
+	mock_repositories "crud_dynamodb/test/unit/mocks"
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
