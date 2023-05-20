@@ -26,3 +26,20 @@ func TestGetUsuarios(t *testing.T) {
 	//Realizar as verficações
 	assert.NotEmpty(t, resp)
 }
+
+func TestGetUsuario(t *testing.T) {
+	//Criar cenário
+	ctrl := gomock.NewController(t)
+	mockRepository := mock_repositories.NewMockRepository(ctrl)
+	user := models.User{ID: "1", Nome: "João"}
+	id := "1"
+
+	mockRepository.EXPECT().FindById(id).Return(user)
+
+	//Chamar o metodo a ser testado
+	serv := services.NewService(mockRepository)
+	resp := serv.GetUsuario(id)
+
+	//Realizar as verficações
+	assert.NotEmpty(t, resp)
+}
